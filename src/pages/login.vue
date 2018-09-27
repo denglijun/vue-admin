@@ -6,8 +6,8 @@
       <el-col :span="24" :xs="24" :sm="16" :md="16" :lg="16">
         <div class="login-form">
           <div class="card-block">
-            <h1>Vue-Admin</h1>
-            <p class="text-muted">任意用户名/密码登录</p>
+            <h1>后台管理系统</h1>
+           <p class="text-muted">用户名和密码登录</p>
             <div class="input-group m-b-1">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
               <input type="text" class="form-control" placeholder="user name" v-model="form.username">
@@ -22,9 +22,9 @@
                 <el-col :span="12">
                   <el-button type="primary" class="btn btn-primary p-x-2" @click="login">登录</el-button>
                 </el-col>
-                <el-col :span="12">
+                <!--<el-col :span="12">
                   <el-button type="button" class="btn btn-link forgot" style="float:right;">忘记密码?</el-button>
-                </el-col>
+                </el-col>-->
               </el-row>
             </div>
           </div>
@@ -34,7 +34,7 @@
         <div class="login-register">
           <div class="card-block">
             <h2>注册</h2>
-            <p>平台暂时只支持使用公司邮箱注册.</p>
+            <p></p>
             <el-button type="info" class="btn btn-primary active m-t-1"> 马上注册</el-button>
           </div>
         </div>

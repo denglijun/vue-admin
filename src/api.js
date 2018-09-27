@@ -1,5 +1,4 @@
-// export const CONTEXT = './api';
-export const CONTEXT = './Vue-Admin';
+export const CONTEXT = './yxadmin';
 
 export const LOGIN = CONTEXT + '/login';
 export const LOGOUT = CONTEXT + '/logout';
