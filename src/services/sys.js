@@ -4,12 +4,18 @@ import defaultValue from "./default";
 
 export function login (params) {
   return new Promise((resolve, reject) => {
-    axios.post(api.LOGIN, { params }).then(response => {
+    axios.get(api.LOGIN, { params }).then(response => {
+      console.log(111);
+      console.log(response);
       resolve(response.data);
     }, err => {
+      console.log(222);
+      console.log(err);
       resolve(defaultValue.login);
     })
       .catch((error) => {
+        console.log(333);
+        console.log(error);
         resolve(defaultValue.login)
       })
   })

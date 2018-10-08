@@ -1,6 +1,6 @@
-export const CONTEXT = './yxadmin';
+export const CONTEXT = '';
 
-export const LOGIN = CONTEXT + '/login';
+export const LOGIN = CONTEXT + '/roles/list';
 export const LOGOUT = CONTEXT + '/logout';
 export const CHANGE_PWD = CONTEXT + '/changePwd';
 
