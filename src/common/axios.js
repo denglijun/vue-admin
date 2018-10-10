@@ -8,11 +8,11 @@ import { MessageBox } from "element-ui";
 axios.defaults.timeout = 5000;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-axios.defaults.baseURL = 'http://localhost:3000';
-//axios.defaults.headers.common['Authorization'] = '';
+// axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.headers.common['Authorization'] = '';
 // axios.defaults.baseURL = getBaseUrl(window.location.href);
-// axios.defaults.headers.common[ 'authUid' ] = auth.getUid();
-// axios.defaults.headers.common[ 'authSid' ] = auth.getSid();
+ axios.defaults.headers.common[ 'authUid' ] = auth.getUid();
+ axios.defaults.headers.common[ 'authSid' ] = auth.getSid();
 
 //POST传参序列化
 // axios.interceptors.request.use((config) => {

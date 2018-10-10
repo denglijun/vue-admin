@@ -8,6 +8,13 @@ import app from "../App.vue";
 import sysUser from "../pages/sys/user.vue";
 import userAdd from "../pages/sys/userAdd.vue";
 import resetPwd from "../pages/resetPwd.vue";
+import countUser from "../pages/tongji/countUser.vue";
+import countAnswerFailReason from "../pages/tongji/countAnswerFailReason.vue";
+import countBlind2Friend from "../pages/tongji/countBlind2Friend";
+import countCallanswerchat from "../pages/tongji/countCallanswerchat";
+import countChatFailReason from "../pages/tongji/countChatFailReason";
+import countFriend2blind from "../pages/tongji/countFriend2blind";
+
 // Routes
 const routes = [
   {path: '/login', component: login},
@@ -15,6 +22,16 @@ const routes = [
     path: '/test', component: app, children: [
     {path: '*', component: NotFoundView}
   ]
+  },
+  {
+    path: '',component: app, children: [
+      {path: "/tongji/1",component: countUser},
+      {path: "/tongji/2",component: countBlind2Friend},
+      {path: "/tongji/3",component: countFriend2blind},
+      {path: "/tongji/4",component: countCallanswerchat},
+      {path: "/tongji/5",component: countAnswerFailReason},
+      {path: "/tongji/6",component: countChatFailReason}
+    ]
   },
   {
     path: '', component: app, children: [

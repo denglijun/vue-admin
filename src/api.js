@@ -1,6 +1,6 @@
-export const CONTEXT = '';
+export const CONTEXT = '/api';
 
-export const LOGIN = CONTEXT + '/roles/list';
+export const LOGIN = CONTEXT + '/users/login';
 export const LOGOUT = CONTEXT + '/logout';
 export const CHANGE_PWD = CONTEXT + '/changePwd';
 
@@ -40,4 +40,11 @@ export const SYS_SET_USER_ROLE = CONTEXT + '/sys/user/setRoles';
 
 export const MSG_TOP_TEN = CONTEXT + '/messageList';
 export const TEST_DATA = CONTEXT + '/static/data/data.json';
+
+export const COUNT_USER = CONTEXT + '/tongji/getCountUser';
+export const COUNT_FRIEND_BLIND = CONTEXT + '/tongji/getCountFriend2blind';
+export const COUNT_CHAT_FAIL_REASON = CONTEXT + '/tongji/getCountChatFailReason';
+export const COUNT_CALL_ANSWER_CHAT = CONTEXT + '/tongji/getCountCallanswerchat';
+export const COUNT_BLIND_FRIEND = CONTEXT + '/tongji/getCountBlind2Friend';
+export const COUNT_ANSWER_FAIL_REASON = CONTEXT + '/tongji/getCountAnswerFailReason';
 
