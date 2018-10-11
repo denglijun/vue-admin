@@ -12,13 +12,13 @@ export const SYS_MENU_PAGE = CONTEXT + '/sys/menu/page';
 export const SYS_MENU_LIST = CONTEXT + '/sys/menu/list';
 export const SYS_MENU_LIST2 = CONTEXT + '/sys/menu/list2';
 
-export const SYS_ROLE_GET = CONTEXT + '/sys/role/get';
-export const SYS_ROLE_UPDATE = CONTEXT + '/sys/role/update';
-export const SYS_ROLE_DELETE = CONTEXT + '/sys/role/delete';
-export const SYS_ROLE_ADD = CONTEXT + '/sys/role/add';
-export const SYS_ROLE_PAGE = CONTEXT + '/sys/role/page';
-export const SYS_ROLE_LIST = CONTEXT + '/sys/role/list';
-export const SYS_ROLE_LIST2 = CONTEXT + '/sys/role/list2';
+export const SYS_ROLE_GET = CONTEXT + '/roles/get';
+export const SYS_ROLE_UPDATE = CONTEXT + '/roles/update';
+export const SYS_ROLE_DELETE = CONTEXT + '/roles/delete';
+export const SYS_ROLE_ADD = CONTEXT + '/roles/add';
+export const SYS_ROLE_PAGE = CONTEXT + '/roles/page';
+export const SYS_ROLE_LIST = CONTEXT + '/roles/list';
+export const SYS_ROLE_LIST2 = CONTEXT + '/roles/list2';
 export const SYS_ROLE_RESOURCE = CONTEXT + '/sys/role/resources';
 export const SYS_SET_ROLE_RESOURCE = CONTEXT + '/sys/role/setResources';
 
@@ -30,9 +30,9 @@ export const SYS_RESOURCE_PAGE = CONTEXT + '/sys/resource/page';
 export const SYS_RESOURCE_LIST = CONTEXT + '/sys/resource/list';
 export const SYS_RESOURCE_LIST2 = CONTEXT + '/sys/resource/list2';
 
-export const SYS_USER_GET = CONTEXT + '/sys/user/get';
-export const SYS_USER_ADD = CONTEXT + '/sys/user/add';
-export const SYS_USER_UPDATE = CONTEXT + '/sys/user/update';
+export const SYS_USER_GET = CONTEXT + '/users/get';
+export const SYS_USER_ADD = CONTEXT + '/users/add';
+export const SYS_USER_UPDATE = CONTEXT + '/users/update';
 export const SYS_USER_DELETE = CONTEXT + '/sys/user/delete';
 export const SYS_USER_PAGE = CONTEXT + '/sys/user/page';
 export const SYS_USER_ROLE = CONTEXT + '/sys/user/roleIds';

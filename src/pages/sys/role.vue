@@ -21,20 +21,20 @@
           <div class="text item">
             <el-form :model="form" ref="form">
               <el-form-item label="父级" :label-width="formLabelWidth">
-                <!--<el-input v-model="form.parentId" auto-complete="off"></el-input>-->
-                <el-select-tree v-model="form.parentId" :treeData="roleTree" :propNames="defaultProps" clearable
+                <!--<el-input v-model="form.pid" auto-complete="off"></el-input>-->
+                <el-select-tree v-model="form.pid" :treeData="roleTree" :propNames="defaultProps" clearable
                                 placeholder="请选择父级">
                 </el-select-tree>
               </el-form-item>
               <el-form-item label="名称" :label-width="formLabelWidth">
-                <el-input v-model="form.name" auto-complete="off"></el-input>
+                <el-input v-model="form.rolename" auto-complete="off"></el-input>
               </el-form-item>
               <el-form-item label="英文" :label-width="formLabelWidth">
-                <el-input v-model="form.enName" auto-complete="off"></el-input>
+                <el-input v-model="form.englishname" auto-complete="off"></el-input>
               </el-form-item>
               <el-form-item label="是否生效" :label-width="formLabelWidth">
-                <el-radio class="radio" v-model="form.usable" label="1">是</el-radio>
-                <el-radio class="radio" v-model="form.usable" label="0">否</el-radio>
+                <el-radio class="radio" v-model="form.is_active" label="1">是</el-radio>
+                <el-radio class="radio" v-model="form.is_active" label="0">否</el-radio>
               </el-form-item>
               <el-form-item label="排序" :label-width="formLabelWidth">
                 <el-slider v-model="form.sort"></el-slider>
@@ -101,7 +101,7 @@
         formLabelWidth: '100px',
         defaultProps: {
           children: 'children',
-          label: 'name',
+          label: 'rolename',
           id: "id",
         },
         roleTree: [],
@@ -109,11 +109,11 @@
         maxId:700000,
         form: {
           id: null,
-          parentId: null,
-          name: '',
-          enName: '',
+          pid: null,
+          rolename: '',
+          englishname: '',
           sort: 0,
-          usable: '1'
+          is_active: '1'
         }
       }
     },
@@ -131,12 +131,11 @@
       },
       newAdd(){
         this.form = {
-          id: null,
-          parentId: null,
-          name: '',
-          enName: '',
+          pid: 0,
+          rolename: '',
+          englishname: '',
           sort: 0,
-          usable: '1',
+          is_active: '1',
           remarks: ''
         };
       },
@@ -164,37 +163,36 @@
 
       },
       onSubmit(){
-        this.form.parentId = this.form.parentId;
+        this.form.pid = this.form.pid;
         this.$http.post(api.SYS_ROLE_ADD, this.form)
           .then(res => {
-            this.form.id = res.data.id;
-            this.appendTreeNode(this.roleTree, res.data);
+            if ( res.data.code == 200 || res.data.code == "200" ) {
+               this.$message('操作成功');
+               this.form.id = res.data.id;
+               this.appendTreeNode(this.roleTree, res.data.data);
+               this.newAdd();
+            } else {
+               this.$message('操作失败');
+            }
+           
           }).catch(e => {
-          this.maxId += 1;
-          this.$message('操作成功');
-          this.form.id = this.maxId;
-          var  ddd = {
-            id: this.form.id,
-            name: this.form.name,
-            sort: this.form.sort,
-            enName:this.form.enName,
-            parentId: this.form.parentId,
-            usable: this.form.usable,
-            children:[]
-          }
-          this.appendTreeNode(this.roleTree, ddd);
-          this.roleTree.push({});
-          this.roleTree.pop();
+            this.$message('操作失败');
         })
       },
       deleteSelected(id){
         this.$http.get(api.SYS_ROLE_DELETE + "?roleIds=" + id)
           .then(res => {
-            this.$message('操作成功');
-            this.deleteFromTree(this.roleTree, id);
-            this.newAdd();
+            console.log(res);
+            if ( re.data.code == "200" || re.data.code == 200 ) {
+              console.log(id)
+              this.$message('操作成功1');
+              this.deleteFromTree(this.roleTree, id);
+              this.newAdd();
+            } else {
+              this.$message('操作失败');
+            }
           }).catch(e =>{
-          this.$message('操作成功');
+          this.$message('操作成功2');
           this.deleteFromTree(this.roleTree, id);
           this.newAdd();
         })

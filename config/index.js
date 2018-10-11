@@ -8,7 +8,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     // assetsPublicPath: '/',
-    assetsPublicPath: '/Vue-Admin/',
+    // assetsPublicPath: '/yxadminfront/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -24,14 +24,14 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 9000,
+    port: 12581,
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       // http://localhost:9000/api/menuList => http://localhost:3000/menuList
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:12580',
         changeOrigin: true,
         pathRewrite: {
           '^/api' : '/',     // rewrite path

@@ -58,9 +58,22 @@ export function resourceList (params) {
   })
 }
 
+//角色管理
+export function roleAdd (params) {
+  return new Promise((resolve,reject) => {
+    axios.post(api.SYS_ROLE_ADD,{ params }).then(response => {
+      resolve(response.data);
+    },err => {
+      resolve();
+    })
+    .catch((error) => {
+      resolve();
+    })
+  })
+}
 export function roleList (params) {
   return new Promise((resolve, reject) => {
-    axios.get(api.SYS_MENU_LIST, { params }).then(response => {
+    axios.get(api.SYS_ROLE_LIST, { params }).then(response => {
       resolve(response.data);
     }, err => {
       resolve(defaultValue.roleList);
