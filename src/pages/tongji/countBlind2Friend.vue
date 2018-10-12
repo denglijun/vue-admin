@@ -31,23 +31,43 @@
           width="50">
         </el-table-column>
         <el-table-column
-          prop="blindId"
-          label="盲人id" 
+          prop="zero"
+          label="0" 
           >
         </el-table-column>
         <el-table-column
-          prop="blindname"
-          label="盲人姓名"
+          prop="one"
+          label="1"
          >
         </el-table-column>
         <el-table-column
-          prop="blindtel"
-          label="盲人手机号"
+          prop="two"
+          label="2"
          >
         </el-table-column>
         <el-table-column
-          prop="bindFriendNum"
-          label="绑定亲友数"
+          prop="three"
+          label="3"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="four"
+          label="4"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="five"
+          label="5"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="sixtoten"
+          label="6-10"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="overten"
+          label="10以上"
          >
         </el-table-column>
         <el-table-column

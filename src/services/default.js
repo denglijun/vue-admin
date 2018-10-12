@@ -41,7 +41,7 @@ export default {
       "isShow": "1"
     },
     {
-      "id": 93,
+      "id": 94,
       "parentId": 31,
       "sort": 0,
       "name": "亲友绑定的盲人数",
@@ -51,7 +51,7 @@ export default {
       "isShow": "1"
     },
     {
-      "id": 93,
+      "id": 95,
       "parentId": 31,
       "sort": 0,
       "name": "呼叫接听接通数",
@@ -61,7 +61,7 @@ export default {
       "isShow": "1"
     },
     {
-      "id": 93,
+      "id": 96,
       "parentId": 31,
       "sort": 0,
       "name": "接听失败原因统计",
@@ -70,7 +70,7 @@ export default {
       "children": [],
       "isShow": "1"
     },{
-      "id": 93,
+      "id": 97,
       "parentId": 31,
       "sort": 0,
       "name": "接通失败原因统计",
@@ -78,7 +78,28 @@ export default {
       "icon": "fa fa-area-chart",
       "children": [],
       "isShow": "1"
-    }],
+    },
+    {
+      "id": 98,
+      "parentId": 31,
+      "sort": 0,
+      "name": "呼叫明细",
+      "href": "/tongji/7",
+      "icon": "fa fa-area-chart",
+      "children": [],
+      "isShow": "1"
+    },
+    {
+      "id": 99,
+      "parentId": 31,
+      "sort": 0,
+      "name": "接通明细",
+      "href": "/tongji/8",
+      "icon": "fa fa-area-chart",
+      "children": [],
+      "isShow": "1"
+    }
+  ],
     "isShow": "1"
   },
   {

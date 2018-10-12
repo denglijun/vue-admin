@@ -33,10 +33,10 @@ export const SYS_RESOURCE_LIST2 = CONTEXT + '/sys/resource/list2';
 export const SYS_USER_GET = CONTEXT + '/users/get';
 export const SYS_USER_ADD = CONTEXT + '/users/add';
 export const SYS_USER_UPDATE = CONTEXT + '/users/update';
-export const SYS_USER_DELETE = CONTEXT + '/sys/user/delete';
-export const SYS_USER_PAGE = CONTEXT + '/sys/user/page';
+export const SYS_USER_DELETE = CONTEXT + '/users/delete';
+export const SYS_USER_LIST = CONTEXT + '/users/list';
 export const SYS_USER_ROLE = CONTEXT + '/sys/user/roleIds';
-export const SYS_SET_USER_ROLE = CONTEXT + '/sys/user/setRoles';
+export const SYS_SET_USER_ROLE = CONTEXT + '/users/setRoles';
 
 export const MSG_TOP_TEN = CONTEXT + '/messageList';
 export const TEST_DATA = CONTEXT + '/static/data/data.json';
@@ -47,4 +47,8 @@ export const COUNT_CHAT_FAIL_REASON = CONTEXT + '/tongji/getCountChatFailReason'
 export const COUNT_CALL_ANSWER_CHAT = CONTEXT + '/tongji/getCountCallanswerchat';
 export const COUNT_BLIND_FRIEND = CONTEXT + '/tongji/getCountBlind2Friend';
 export const COUNT_ANSWER_FAIL_REASON = CONTEXT + '/tongji/getCountAnswerFailReason';
+export const COUNT_CALL_DETAIL = CONTEXT + '/tongji/calldetail';
+export const COUNT_CHAT_DETAIL = CONTEXT + '/tongji/chatdetail';
+
+
 

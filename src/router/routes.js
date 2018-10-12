@@ -14,6 +14,8 @@ import countBlind2Friend from "../pages/tongji/countBlind2Friend";
 import countCallanswerchat from "../pages/tongji/countCallanswerchat";
 import countChatFailReason from "../pages/tongji/countChatFailReason";
 import countFriend2blind from "../pages/tongji/countFriend2blind";
+import countCallDetail from "../pages/tongji/countCallDetail";
+import countChatDetail from "../pages/tongji/countChatDetail";
 
 // Routes
 const routes = [
@@ -30,7 +32,9 @@ const routes = [
       {path: "/tongji/3",component: countFriend2blind},
       {path: "/tongji/4",component: countCallanswerchat},
       {path: "/tongji/5",component: countAnswerFailReason},
-      {path: "/tongji/6",component: countChatFailReason}
+      {path: "/tongji/6",component: countChatFailReason},
+      {path: "/tongji/7",component: countCallDetail},
+      {path: "/tongji/8",component: countChatDetail}
     ]
   },
   {

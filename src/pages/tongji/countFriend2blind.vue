@@ -31,24 +31,44 @@
           width="50">
         </el-table-column>
         <el-table-column
-          prop="friendId"
-          label="亲友id" 
+          prop="zero"
+          label="0" 
           >
         </el-table-column>
         <el-table-column
-          prop="friendname"
-          label="亲友姓名"
+          prop="one"
+          label="1"
          >
         </el-table-column>
         <el-table-column
-          prop="friendtel"
-          label="亲友手机号"
+          prop="two"
+          label="2"
          >
         </el-table-column>
         <el-table-column
-          prop="friendBlindNum"
-          label="绑定盲人数"
+          prop="three"
+          label="3"
          >
+        </el-table-column>
+         <el-table-column
+          prop="four"
+          label="4"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="five"
+          label="5"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="sixtoten"
+          label="6-10"
+         > 
+         <el-table-column
+          prop="overten"
+          label="10以上"
+         >
+        </el-table-column>
         </el-table-column>
         <el-table-column
           prop="createdAt"

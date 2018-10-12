@@ -79,3 +79,28 @@ export function countuser (params) {
         })
     })
   }
+  export function CountcallDetail (params) {
+    return new Promise((resolve, reject) => {
+      axios.get(api.COUNT_CALL_DETAIL, {params}).then(response => {
+        resolve(response.data);
+      }, err => {
+        resolve(defaultValue.countuser);
+      })
+        .catch((error) => {
+          resolve(defaultValue.countuser)
+        })
+    })
+  }
+  
+  export function CountChatDetail (params) {
+    return new Promise((resolve, reject) => {
+      axios.get(api.COUNT_CHAT_DETAIL, {params}).then(response => {
+        resolve(response.data);
+      }, err => {
+        resolve(defaultValue.countuser);
+      })
+        .catch((error) => {
+          resolve(defaultValue.countuser)
+        })
+    })
+  }

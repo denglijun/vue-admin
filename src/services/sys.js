@@ -85,15 +85,14 @@ export function roleList (params) {
 }
 
 export function userList (params) {
-  const userList = {total:defaultValue.userList.total,records:defaultValue.userList.records.reverse()}
   return new Promise((resolve, reject) => {
-    axios.get(api.SYS_USER_PAGE, { params }).then(response => {
+    axios.get(api.SYS_USER_LIST, { params }).then(response => {
       resolve(response.data);
     }, err => {
-      resolve(userList);
+      resolve({});
     })
       .catch((error) => {
-        resolve(userList)
+        resolve({})
       })
   })
 }
