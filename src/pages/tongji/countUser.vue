@@ -2,20 +2,7 @@
 
   <imp-panel>
     <h3 class="box-title" slot="header" style="width: 100%;">
-      <el-row style="width: 100%;">
-        <el-col :span="12">
-          <router-link :to="{ path: 'userAdd'}">
-            <el-button type="primary" icon="plus">新增</el-button>
-          </router-link>
-        </el-col>
-        <el-col :span="12">
-          <div class="el-input" style="width: 200px; float: right;">
-            <i class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="输入用户名称" v-model="searchKey" @keyup.enter="search($event)"
-                   class="el-input__inner">
-          </div>
-        </el-col>
-      </el-row>
+      
     </h3>
     <div slot="body">
       <el-table

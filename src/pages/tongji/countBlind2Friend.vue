@@ -1,91 +1,15 @@
 <template>
-
   <imp-panel>
     <h3 class="box-title" slot="header" style="width: 100%;">
-      <el-row style="width: 100%;">
-        <el-col :span="12">
-          <router-link :to="{ path: 'userAdd'}">
-            <el-button type="primary" icon="plus">新增</el-button>
-          </router-link>
-        </el-col>
-        <el-col :span="12">
-          <div class="el-input" style="width: 200px; float: right;">
-            <i class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="输入用户名称" v-model="searchKey" @keyup.enter="search($event)"
-                   class="el-input__inner">
-          </div>
-        </el-col>
-      </el-row>
+      <el-date-picker
+        v-model="searchKey"
+        type="date"
+        placeholder="选择日期"
+        @change=search($event)>
+      </el-date-picker>
     </h3>
     <div slot="body">
-      <el-table
-        :data="tableData.rows"
-        border
-        style="width: 100%"
-        v-loading="listLoading"
-        @selection-change="handleSelectionChange">
-        <!--checkbox 适当加宽，否则IE下面有省略号 https://github.com/ElemeFE/element/issues/1563-->
-        <el-table-column
-          prop="id"
-          type="selection"
-          width="50">
-        </el-table-column>
-        <el-table-column
-          prop="zero"
-          label="0" 
-          >
-        </el-table-column>
-        <el-table-column
-          prop="one"
-          label="1"
-         >
-        </el-table-column>
-        <el-table-column
-          prop="two"
-          label="2"
-         >
-        </el-table-column>
-        <el-table-column
-          prop="three"
-          label="3"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="four"
-          label="4"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="five"
-          label="5"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="sixtoten"
-          label="6-10"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="overten"
-          label="10以上"
-         >
-        </el-table-column>
-        <el-table-column
-          prop="createdAt"
-          label="日期"
-         >
-        </el-table-column>
-      </el-table>
-
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="tableData.pagination.pageNo"
-        :page-sizes="[5, 10, 20]"
-        :page-size="tableData.pagination.pageSize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="tableData.pagination.total">
-      </el-pagination>
+      <div id="myChart" :style="{width: '1000px', height: '600px'}"></div>
     </div>
   </imp-panel>
 </template>
@@ -125,6 +49,9 @@
       }
     },
     methods: {
+      search(target){
+        this.loadData();
+      },
       handleSelectionChange(val){
 
       },
@@ -143,14 +70,31 @@
             pageNo: this.tableData.pagination.pageNo
           })
           .then(res => {
-            this.tableData.rows = res.records;
-            this.tableData.pagination.total = res.total;
+            //初始化
+            let myChart = this.$echarts.init(document.getElementById('myChart'))
+            // 绘制图表
+            myChart.setOption({
+                title: { text: '盲人绑定的亲友数分布' },
+                xAxis: {
+                    type: 'category',
+                    data: ["0个","1个","2个","3个","4个","5个","6-10个","10个以上"]
+                },
+                yAxis: {
+                  type: 'value'
+                },
+                series: [{
+                    type: 'line',
+                    data: [res.records[0].zero, res.records[0].one,res.records[0].two, res.records[0].three, res.records[0].four, res.records[0].five,res.records[0].sixtoten,res.records[0].overten]
+                }]
+            });
           });
-      }
+      },
+
     },
     created(){
       this.loadData();
-    }
+    },
+
   }
 </script>
 <style>

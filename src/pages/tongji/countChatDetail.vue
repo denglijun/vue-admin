@@ -9,11 +9,15 @@
           </router-link>
         </el-col>
         <el-col :span="12">
-          <div class="el-input" style="width: 200px; float: right;">
-            <i class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="输入用户名称" v-model="searchKey" @keyup.enter="search($event)"
-                   class="el-input__inner">
-          </div>
+            <el-date-picker
+              v-model="searchKey"
+              type="datetimerange"
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+              value-format="yyyy-MM-dd HH:mm:ss"
+              @change="search($event)">
+            </el-date-picker>
         </el-col>
       </el-row>
     </h3>
@@ -110,7 +114,6 @@
   import * as api from "../../api"
   import testData from "../../../static/data/data.json"
   import * as tongjiApi from '../../services/tongji'
-
   export default {
     components: {
       'imp-panel': panel
@@ -140,6 +143,9 @@
       }
     },
     methods: {
+      search(target){
+        this.loadData();
+      },
       handleSelectionChange(val){
 
       },
