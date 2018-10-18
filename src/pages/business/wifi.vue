@@ -1,17 +1,16 @@
 <template>
-
   <imp-panel>
     <h3 class="box-title" slot="header" style="width: 100%;">
       <el-row style="width: 100%;">
         <el-col :span="12">
-          <router-link :to="{ path: 'userAdd'}">
+          <router-link :to="{ path: 'wifiAdd'}">
             <el-button type="primary" icon="plus">新增</el-button>
           </router-link>
         </el-col>
         <el-col :span="12">
           <div class="el-input" style="width: 200px; float: right;">
             <i class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="输入用户名称" v-model="searchKey" @keyup.enter="search($event)"
+            <input type="text" placeholder="输入用户手机号" v-model="searchKey" @keyup.enter="search($event)"
                    class="el-input__inner">
           </div>
         </el-col>
@@ -31,49 +30,31 @@
           width="50">
         </el-table-column>
         <el-table-column
-          prop="callnum"
-          label="呼叫数" 
-          >
-        </el-table-column>
-        <el-table-column
-          prop="answernum"
-          label="接听数"
-         >
-        </el-table-column>
-        <el-table-column
-          prop="chatnum"
-          label="接通数"
-         >
-        </el-table-column>
-        <el-table-column
-          prop="callfriendnum"
-          label="呼叫亲友数"
-         >
+          prop="username"
+          label="wifi名称">
         </el-table-column>
          <el-table-column
-          prop="callvolunteernum"
-          label="呼叫志愿者数"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="callcustomernum"
-          label="呼叫客服数"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="answerSuccessRate"
-          label="接听成功率"
-         >
-        </el-table-column>
-         <el-table-column
-          prop="chatSuccessRate"
-          label="接通成功率"
-         >
+          prop="username"
+          label="wifi密码">
         </el-table-column>
         <el-table-column
-          prop="createdAt"
-          label="日期"
-         >
+          prop="tel"
+          label="手机号">
+        </el-table-column>
+        <el-table-column label="操作" width="285">
+          <template slot-scope="scope">
+            <el-button
+              size="small"
+              type="default"
+              icon="edit"
+              @click="handleEdit(scope.$index, scope.row)">编辑
+            </el-button>
+            <el-button
+              size="small"
+              type="danger"
+              @click="handleDelete(scope.$index, scope.row)">删除
+            </el-button>
+          </template>
         </el-table-column>
       </el-table>
 
@@ -86,6 +67,29 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="tableData.pagination.total">
       </el-pagination>
+
+      <el-dialog title="配置用户角色" v-model="dialogVisible" size="tiny">
+        <div class="select-tree">
+          <el-scrollbar
+            tag="div"
+            class='is-empty'
+            wrap-class="el-select-dropdown__wrap"
+            view-class="el-select-dropdown__list">
+            <el-tree
+              ref="roleTree"
+              :data="roleTree"
+              show-checkbox
+              check-strictly
+              node-key="id" v-loading="dialogLoading"
+              :props="defaultProps">
+            </el-tree>
+          </el-scrollbar>
+        </div>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="configUserRoles">确 定</el-button>
+        </span>
+      </el-dialog>
     </div>
   </imp-panel>
 </template>
@@ -94,7 +98,7 @@
   import panel from "../../components/panel.vue"
   import * as api from "../../api"
   import testData from "../../../static/data/data.json"
-  import * as tongjiApi from '../../services/tongji'
+  import * as sysApi from '../../services/sys'
 
   export default {
     components: {
@@ -107,7 +111,7 @@
         dialogLoading: false,
         defaultProps: {
           children: 'children',
-          label: 'name',
+          label: 'rolename',
           id: "id",
         },
         roleTree: [],
@@ -125,10 +129,37 @@
       }
     },
     methods: {
+      search(target){
+        this.loadData();
+      },
       handleSelectionChange(val){
 
       },
-    handleSizeChange(val) {
+      handleRoleConfig(index, row){
+        this.currentRow = row;
+        this.dialogVisible = true;
+        if (this.roleTree.length <= 0) {
+          sysApi.roleList({selectChildren:true})
+            .then(res => {
+              this.roleTree = res
+            })
+        }
+        this.$http.get(api.SYS_USER_ROLE + "?id=" + row.id)
+          .then(res => {
+            this.$refs.roleTree.setCheckedKeys(res.data);
+          }).catch(err=>{
+
+        })
+      },
+      configUserRoles(){
+        let checkedKeys = this.$refs.roleTree.getCheckedKeys();
+          this.$http.get(api.SYS_SET_USER_ROLE + "?userId=" + this.currentRow.id + "&roleIds="+checkedKeys.join(','))
+          .then(res => {
+              this.$message('修改成功');
+              this.dialogVisible = false;
+          })
+      },
+      handleSizeChange(val) {
         this.tableData.pagination.pageSize = val;
         this.loadData();
       },
@@ -136,8 +167,16 @@
         this.tableData.pagination.pageNo = val;
         this.loadData();
       },
+      handleEdit(index, row){
+        this.$router.push({path: 'userAdd', query: {id: row.id}})
+      },
+      handleDelete(index, row){
+        this.$http.get(api.SYS_USER_DELETE + "?userIds=" + row.id).then(res => {
+          this.loadData();
+        });
+      },
       loadData(){
-          tongjiApi.CountCallanswerchat({
+          sysApi.userList({
             key: this.searchKey,
             pageSize: this.tableData.pagination.pageSize,
             pageNo: this.tableData.pagination.pageNo

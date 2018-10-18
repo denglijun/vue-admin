@@ -128,17 +128,19 @@
         this.loadData();
       },
       download() {
-        tongjiApi.CountcallDetailExcel({
+        tongjiApi.CountAnswerFailDetailExcel({
           searchKey:this.searchKey
         })
         .then(res => {
            if ( res.code == "200" || res.code == 200 ) {
-              window.open("http://101.132.132.117:12580/"+res.data,"_self");
+              //window.open("http://101.132.132.117:12580/"+res.data,"_self");
+              window.open("http://localhost:12580/"+res.data,"_self");
+
             }
         })
       },
       loadData(){
-          tongjiApi.CountcallDetail({
+          tongjiApi.CountAnswerFailDetail({
             key: this.searchKey,
             pageSize: this.tableData.pagination.pageSize,
             pageNo: this.tableData.pagination.pageNo

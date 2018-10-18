@@ -4,16 +4,18 @@
     <h3 class="box-title" slot="header" style="width: 100%;">
       <el-row style="width: 100%;">
         <el-col :span="12">
-          <router-link :to="{ path: 'userAdd'}">
-            <el-button type="primary" icon="plus">新增</el-button>
-          </router-link>
+            <el-button type="primary" icon="download" @click="download()">导出excel</el-button>
         </el-col>
         <el-col :span="12">
-          <div class="el-input" style="width: 200px; float: right;">
-            <i class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="输入用户名称" v-model="searchKey" @keyup.enter="search($event)"
-                   class="el-input__inner">
-          </div>
+            <el-date-picker
+              v-model="searchKey" 
+              type="datetimerange"
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+              value-format="yyyy-MM-dd HH:mm:ss"
+              @change="search($event)">
+            </el-date-picker>
         </el-col>
       </el-row>
     </h3>
@@ -32,9 +34,15 @@
         </el-table-column>
         <el-table-column
           prop="failnum"
-          label="失败总数" 
+          label="数量" 
           >
         </el-table-column>
+        <el-table-column
+          prop="proportion"
+          label="比例" 
+          >
+        </el-table-column>
+        
         <el-table-column
           prop="reason"
           label="原因"
@@ -95,6 +103,9 @@
       }
     },
     methods: {
+      search(target){
+        this.loadData();
+      },
       handleSelectionChange(val){
 
       },
@@ -105,6 +116,16 @@
       handleCurrentChange(val) {
         this.tableData.pagination.pageNo = val;
         this.loadData();
+      },
+      download(){
+        tongjiApi.CountAnswerFailReasonExcel({
+          searchKey: this.searchKey
+        })
+        .then( res => {
+          if ( res.code == "200" || res.code == 200 ) {
+              window.open("http://101.132.132.117:12580/"+res.data,"_self");
+            }
+        });
       },
       loadData(){
           tongjiApi.CountAnswerFailReason({

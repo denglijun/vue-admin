@@ -49,6 +49,14 @@ export const COUNT_BLIND_FRIEND = CONTEXT + '/tongji/getCountBlind2Friend';
 export const COUNT_ANSWER_FAIL_REASON = CONTEXT + '/tongji/getCountAnswerFailReason';
 export const COUNT_CALL_DETAIL = CONTEXT + '/tongji/calldetail';
 export const COUNT_CHAT_DETAIL = CONTEXT + '/tongji/chatdetail';
+export const COUNT_ANSWER_FAIL_DETAIL = CONTEXT + '/tongji/answerFailDetail';
+export const COUNT_CHAT_DETAIL_EXCEL = CONTEXT + '/tongji/chatdetailexcel';
+export const COUNT_CALL_DETAIL_EXCEL = CONTEXT + '/tongji/calldetailexcel';
+export const COUNT_ANSWER_FAIL_REASON_EXCEL = CONTEXT + '/tongji/getCountAnswerFailReasonExcel';
+export const COUNT_ANSWER_FAIL_DETAIL_EXCEL = CONTEXT + '/tongji/getCountAnswerFailDetailExcel';
 
-
-
+export const BUSINESS_WIFI_LIST = CONTEXT + '/business/wifilist';
+export const BUSINESS_WIFI_ADD = CONTEXT + '/business/wifiAdd';
+export const BUSINESS_WIFI_UPDATE = CONTEXT + '/business/wifiUpdate';
+export const BUSINESS_WIFI_DELETE = CONTEXT + '/business/wifiDelete';
+export const BUSINESS_WIFI_GET = CONTEXT + '/business/getWifi';

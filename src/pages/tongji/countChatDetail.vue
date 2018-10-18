@@ -4,13 +4,11 @@
     <h3 class="box-title" slot="header" style="width: 100%;">
       <el-row style="width: 100%;">
         <el-col :span="12">
-          <router-link :to="{ path: 'userAdd'}">
-            <el-button type="primary" icon="plus">新增</el-button>
-          </router-link>
+            <el-button type="primary" icon="download" @click="download()">导出excel</el-button>
         </el-col>
         <el-col :span="12">
             <el-date-picker
-              v-model="searchKey"
+              v-model="searchKey" 
               type="datetimerange"
               range-separator="至"
               start-placeholder="开始日期"
@@ -156,6 +154,16 @@
       handleCurrentChange(val) {
         this.tableData.pagination.pageNo = val;
         this.loadData();
+      },
+      download(){
+        tongjiApi.CountChatDetailExcel({
+          searchKey: this.searchKey
+        })
+        .then( res => {
+          if ( res.code == "200" || res.code == 200 ) {
+              window.open("http://101.132.132.117:12580/"+res.data,"_self");
+            }
+        });
       },
       loadData(){
           tongjiApi.CountChatDetail({
