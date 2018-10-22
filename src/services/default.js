@@ -108,6 +108,46 @@ export default {
                     "icon": "fa fa-area-chart",
                     "children": [],
                     "isShow": "1"
+                },
+                {
+                    "id": 101,
+                    "parentId": 31,
+                    "sort": 0,
+                    "name": "APP端视友基本信息",
+                    "href": "/tongji/10",
+                    "icon": "fa fa-area-chart",
+                    "children": [],
+                    "isShow": "1"
+                },
+                {
+                    "id": 102,
+                    "parentId": 31,
+                    "sort": 0,
+                    "name": "APP端亲友基本信息",
+                    "href": "/tongji/11",
+                    "icon": "fa fa-area-chart",
+                    "children": [],
+                    "isShow": "1"
+                },
+                {
+                    "id": 103,
+                    "parentId": 31,
+                    "sort": 0,
+                    "name": "用户呼叫明细",
+                    "href": "/tongji/12",
+                    "icon": "fa fa-area-chart",
+                    "children": [],
+                    "isShow": "1"
+                },
+                {
+                    "id": 104,
+                    "parentId": 31,
+                    "sort": 0,
+                    "name": "用户呼叫汇总",
+                    "href": "/tongji/13",
+                    "icon": "fa fa-area-chart",
+                    "children": [],
+                    "isShow": "1"
                 }
             ],
             "isShow": "1"

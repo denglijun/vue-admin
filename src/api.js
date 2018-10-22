@@ -1,4 +1,4 @@
-export const CONTEXT = '/api';
+export const CONTEXT = '';
 
 export const LOGIN = CONTEXT + '/users/login';
 export const LOGOUT = CONTEXT + '/logout';
@@ -54,6 +54,12 @@ export const COUNT_CHAT_DETAIL_EXCEL = CONTEXT + '/tongji/chatdetailexcel';
 export const COUNT_CALL_DETAIL_EXCEL = CONTEXT + '/tongji/calldetailexcel';
 export const COUNT_ANSWER_FAIL_REASON_EXCEL = CONTEXT + '/tongji/getCountAnswerFailReasonExcel';
 export const COUNT_ANSWER_FAIL_DETAIL_EXCEL = CONTEXT + '/tongji/getCountAnswerFailDetailExcel';
+export const APP_BLIND_INFO = CONTEXT + '/appUser/appBlindInfo';
+export const APP_ANGEL_INFO = CONTEXT + '/appUser/appAngelInfo';
+export const USER_CALL_DETAIL = CONTEXT + '/appUser/userCallDetail';
+export const USER_CALLS = CONTEXT + '/appUser/userCalls';
+
+
 
 export const BUSINESS_WIFI_LIST = CONTEXT + '/business/wifilist';
 export const BUSINESS_WIFI_ADD = CONTEXT + '/business/wifiAdd';

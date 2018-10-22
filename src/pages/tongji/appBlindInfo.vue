@@ -6,16 +6,12 @@
         <el-col :span="12">
             <el-button type="primary" icon="download" @click="download()">导出excel</el-button>
         </el-col>
-          <el-col :span="12">
-            <el-date-picker
-              v-model="searchKey"
-              type="datetimerange"
-              range-separator="至"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-              value-format="yyyy-MM-dd HH:mm:ss"
-              @change="search($event)">
-            </el-date-picker>
+       <el-col :span="12">
+          <div class="el-input" style="width: 200px; float: right;">
+            <i class="el-input__icon el-icon-search"></i>
+            <input type="text" placeholder="输入用户手机号" v-model="searchKey" @keyup.enter="search($event)"
+                   class="el-input__inner">
+          </div>
         </el-col>
       </el-row>
     </h3>
@@ -33,33 +29,58 @@
           width="50">
         </el-table-column>
         <el-table-column
-          prop="caller_tel"
-          label="呼叫者电话" 
+          prop="id"
+          label="用户id" 
           >
         </el-table-column>
         <el-table-column
-          prop="caller_name"
-          label="呼叫者姓名"
+          prop="name"
+          label="视友姓名"
          >
         </el-table-column>
         <el-table-column
-          prop="callee_tel"
-          label="被呼叫者电话"
+          prop="address"
+          label="城市"
          >
         </el-table-column>
         <el-table-column
-          prop="hangup_reason"
-          label="挂断原因"
+          prop="age"
+          label="年龄"
          >
         </el-table-column>
-        <el-table-column
-          prop="callAt"
-          label="呼叫时间"
+         <el-table-column
+          prop="gender"
+          label="性别"
          >
         </el-table-column>
-        <el-table-column
-          prop="createdAt"
-          label="统计日期"
+         <el-table-column
+          prop="tel"
+          label="电话"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="eyesight"
+          label="视力状况"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="angelnum"
+          label="绑定亲友数"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="money_left"
+          label="账户余额"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="money_use"
+          label="使用额"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="totalmoney"
+          label="充值额"
          >
         </el-table-column>
       </el-table>
@@ -82,7 +103,6 @@
   import * as api from "../../api"
   import testData from "../../../static/data/data.json"
   import * as tongjiApi from '../../services/tongji'
-
   export default {
     components: {
       'imp-panel': panel
@@ -112,10 +132,9 @@
       }
     },
     methods: {
-        search(target){
-          console.log(target);
-          this.loadData();
-        },
+      search(target){
+        this.loadData();
+      },
       handleSelectionChange(val){
 
       },
@@ -127,27 +146,25 @@
         this.tableData.pagination.pageNo = val;
         this.loadData();
       },
-      download() {
-        tongjiApi.CountAnswerFailDetailExcel({
-          searchKey:this.searchKey
+      download(){
+        tongjiApi.CountChatDetailExcel({
+          searchKey: this.searchKey
         })
-        .then(res => {
-           if ( res.code == "200" || res.code == 200 ) {
+        .then( res => {
+          if ( res.code == "200" || res.code == 200 ) {
               window.open("http://101.132.132.117:12580/"+res.data,"_self");
-             // window.open("http://localhost:12580/"+res.data,"_self");
-
             }
-        })
+        });
       },
       loadData(){
-          tongjiApi.CountAnswerFailDetail({
+          tongjiApi.AppBlindInfo({
             key: this.searchKey,
             pageSize: this.tableData.pagination.pageSize,
             pageNo: this.tableData.pagination.pageNo
           })
           .then(res => {
-            this.tableData.rows = res.records;
-            this.tableData.pagination.total = res.total;
+            this.tableData.rows = res.data.records;
+            this.tableData.pagination.total = res.data.total;
           });
       }
     },

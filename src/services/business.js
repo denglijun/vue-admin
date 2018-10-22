@@ -31,7 +31,7 @@ export function wifiAdd(params) {
 
 export function wifiUpdate(params) {
     return new Promise((resolve, reject) => {
-        axios.get(api.BUSINESS_WIFI_UPDATE, { params }).then(response => {
+        axios.post(api.BUSINESS_WIFI_UPDATE, { params }).then(response => {
                 resolve(response.data);
             }, err => {
                 resolve(defaultValue.countuser);

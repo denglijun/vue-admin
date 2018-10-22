@@ -3,12 +3,19 @@
   <imp-panel>
     <h3 class="box-title" slot="header" style="width: 100%;">
       <el-row style="width: 100%;">
-        <el-col :span="12">
+        <el-col :span="6">
             <el-button type="primary" icon="download" @click="download()">导出excel</el-button>
         </el-col>
-          <el-col :span="12">
+        <el-col :span="6">
+          <div class="el-input" style="width: 200px;">
+            <i class="el-input__icon el-icon-search"></i>
+            <input type="text" placeholder="输入用户手机号" v-model="searchtel" @keyup.enter="search($event)"
+                   class="el-input__inner">
+          </div>
+        </el-col>
+        <el-col :span="12">
             <el-date-picker
-              v-model="searchKey"
+              v-model="searchKey" 
               type="datetimerange"
               range-separator="至"
               start-placeholder="开始日期"
@@ -33,33 +40,90 @@
           width="50">
         </el-table-column>
         <el-table-column
-          prop="caller_tel"
-          label="呼叫者电话" 
+          prop="chat_id"
+          label="接通id" 
           >
         </el-table-column>
         <el-table-column
-          prop="caller_name"
-          label="呼叫者姓名"
+          prop="user_id"
+          label="用户id"
          >
         </el-table-column>
         <el-table-column
-          prop="callee_tel"
-          label="被呼叫者电话"
+          prop="name"
+          label="视友姓名"
          >
         </el-table-column>
         <el-table-column
+          prop="address"
+          label="城市"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="ages"
+          label="年龄"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="gender"
+          label="性别"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="tel"
+          label="电话"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="eyesight"
+          label="视力状况"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="status"
+          label="接通状态"
+         >
+        </el-table-column>
+            <el-table-column
           prop="hangup_reason"
-          label="挂断原因"
+          label="通话状态"
          >
         </el-table-column>
+         <el-table-column
+          prop="service_type"
+          label="呼叫对象"
+         >
+        </el-table-column>
+        
         <el-table-column
-          prop="callAt"
+          prop="calldate"
+          label="日期"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="calltime"
           label="呼叫时间"
          >
         </el-table-column>
-        <el-table-column
-          prop="createdAt"
-          label="统计日期"
+         <el-table-column
+          prop="hanguptime"
+          label="挂断时间"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="chat_duration"
+          label="通话时间"
+         >
+        </el-table-column>
+         <el-table-column
+          prop="ua"
+          label="亲友端版本号"
+         >
+        </el-table-column>
+         </el-table-column>
+         <el-table-column
+          prop="ub"
+          label="视友端版本号"
          >
         </el-table-column>
       </el-table>
@@ -82,7 +146,6 @@
   import * as api from "../../api"
   import testData from "../../../static/data/data.json"
   import * as tongjiApi from '../../services/tongji'
-
   export default {
     components: {
       'imp-panel': panel
@@ -100,6 +163,7 @@
         roleTree: [],
         listLoading: false,
         searchKey: '',
+        searchtel: '',
         tableData: {
           pagination: {
             total: 0,
@@ -112,10 +176,9 @@
       }
     },
     methods: {
-        search(target){
-          console.log(target);
-          this.loadData();
-        },
+      search(target){
+        this.loadData();
+      },
       handleSelectionChange(val){
 
       },
@@ -127,27 +190,26 @@
         this.tableData.pagination.pageNo = val;
         this.loadData();
       },
-      download() {
-        tongjiApi.CountAnswerFailDetailExcel({
-          searchKey:this.searchKey
+      download(){
+        tongjiApi.CountChatDetailExcel({
+          searchKey: this.searchKey
         })
-        .then(res => {
-           if ( res.code == "200" || res.code == 200 ) {
+        .then( res => {
+          if ( res.code == "200" || res.code == 200 ) {
               window.open("http://101.132.132.117:12580/"+res.data,"_self");
-             // window.open("http://localhost:12580/"+res.data,"_self");
-
             }
-        })
+        });
       },
       loadData(){
-          tongjiApi.CountAnswerFailDetail({
+          tongjiApi.userCallDetail({
             key: this.searchKey,
+            tel: this.searchtel,
             pageSize: this.tableData.pagination.pageSize,
             pageNo: this.tableData.pagination.pageNo
           })
           .then(res => {
-            this.tableData.rows = res.records;
-            this.tableData.pagination.total = res.total;
+            this.tableData.rows = res.data.records;
+            this.tableData.pagination.total = res.data.total;
           });
       }
     },

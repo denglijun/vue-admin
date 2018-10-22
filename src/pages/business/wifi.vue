@@ -25,16 +25,16 @@
         @selection-change="handleSelectionChange">
         <!--checkbox 适当加宽，否则IE下面有省略号 https://github.com/ElemeFE/element/issues/1563-->
         <el-table-column
-          prop="id"
+          prop="user_id"
           type="selection"
           width="50">
         </el-table-column>
         <el-table-column
-          prop="username"
+          prop="ssid"
           label="wifi名称">
         </el-table-column>
          <el-table-column
-          prop="username"
+          prop="password"
           label="wifi密码">
         </el-table-column>
         <el-table-column
@@ -67,29 +67,6 @@
         layout="total, sizes, prev, pager, next, jumper"
         :total="tableData.pagination.total">
       </el-pagination>
-
-      <el-dialog title="配置用户角色" v-model="dialogVisible" size="tiny">
-        <div class="select-tree">
-          <el-scrollbar
-            tag="div"
-            class='is-empty'
-            wrap-class="el-select-dropdown__wrap"
-            view-class="el-select-dropdown__list">
-            <el-tree
-              ref="roleTree"
-              :data="roleTree"
-              show-checkbox
-              check-strictly
-              node-key="id" v-loading="dialogLoading"
-              :props="defaultProps">
-            </el-tree>
-          </el-scrollbar>
-        </div>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="configUserRoles">确 定</el-button>
-        </span>
-      </el-dialog>
     </div>
   </imp-panel>
 </template>
@@ -98,7 +75,7 @@
   import panel from "../../components/panel.vue"
   import * as api from "../../api"
   import testData from "../../../static/data/data.json"
-  import * as sysApi from '../../services/sys'
+  import * as businessApi from '../../services/business'
 
   export default {
     components: {
@@ -168,15 +145,20 @@
         this.loadData();
       },
       handleEdit(index, row){
-        this.$router.push({path: 'userAdd', query: {id: row.id}})
+        this.$router.push({path: 'wifiAdd', query: {uid: row.user_id,ssid:row.ssid}})
       },
       handleDelete(index, row){
-        this.$http.get(api.SYS_USER_DELETE + "?userIds=" + row.id).then(res => {
-          this.loadData();
+        businessApi.wifiDelete({user_id:row.user_id,ssid:row.ssid}).then(res => {
+          if ( res.code == "200" || res.code == 200 ) {
+            this.$message(res.msg);
+            this.loadData();
+          } else {
+             this.$message(res.msg);
+          }
         });
       },
       loadData(){
-          sysApi.userList({
+          businessApi.wifiList({
             key: this.searchKey,
             pageSize: this.tableData.pagination.pageSize,
             pageNo: this.tableData.pagination.pageNo

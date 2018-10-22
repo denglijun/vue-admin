@@ -168,3 +168,55 @@ export function CountAnswerFailDetailExcel(params) {
             })
     })
 }
+
+export function AppBlindInfo(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.APP_BLIND_INFO, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
+export function AppAngelInfo(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.APP_ANGEL_INFO, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
+
+
+export function userCallDetail(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.USER_CALL_DETAIL, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
+
+export function userCalls(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.USER_CALLS, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}

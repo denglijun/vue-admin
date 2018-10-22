@@ -19,6 +19,10 @@ import countChatDetail from "../pages/tongji/countChatDetail";
 import countAnswerFailDetail from "../pages/tongji/countAnswerFailDetail";
 import wifi from "../pages/business/Wifi";
 import wifiAdd from "../pages/business/WifiAdd";
+import appBlindInfo from "../pages/tongji/appBlindInfo";
+import appAngelInfo from "../pages/tongji/appAngelInfo";
+import userCallDetail from "../pages/tongji/userCallDetail";
+import userCalls from "../pages/tongji/userCalls";
 
 // Routes
 const routes = [
@@ -42,7 +46,12 @@ const routes = [
             { path: "/tongji/6", component: countChatFailReason },
             { path: "/tongji/7", component: countCallDetail },
             { path: "/tongji/8", component: countChatDetail },
-            { path: "/tongji/9", component: countAnswerFailDetail }
+            { path: "/tongji/9", component: countAnswerFailDetail },
+            { path: "/tongji/10", component: appBlindInfo },
+            { path: "/tongji/11", component: appAngelInfo },
+            { path: "tongji/12", component: userCallDetail },
+            { path: "tongji/13", component: userCalls },
+
         ]
     },
     {
