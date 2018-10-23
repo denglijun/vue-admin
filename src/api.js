@@ -1,4 +1,4 @@
-export const CONTEXT = '';
+export const CONTEXT = '/api';
 
 export const LOGIN = CONTEXT + '/users/login';
 export const LOGOUT = CONTEXT + '/logout';
@@ -25,9 +25,9 @@ export const SYS_SET_ROLE_RESOURCE = CONTEXT + '/sys/role/setResources';
 export const SYS_RESOURCE_GET = CONTEXT + '/sys/resource/get';
 export const SYS_RESOURCE_UPDATE = CONTEXT + '/sys/resource/update';
 export const SYS_RESOURCE_DELETE = CONTEXT + '/sys/resource/delete';
-export const SYS_RESOURCE_ADD = CONTEXT + '/sys/resource/add';
+export const SYS_RESOURCE_ADD = CONTEXT + '/node/add';
 export const SYS_RESOURCE_PAGE = CONTEXT + '/sys/resource/page';
-export const SYS_RESOURCE_LIST = CONTEXT + '/sys/resource/list';
+export const SYS_RESOURCE_LIST = CONTEXT + '/node/resourceList';
 export const SYS_RESOURCE_LIST2 = CONTEXT + '/sys/resource/list2';
 
 export const SYS_USER_GET = CONTEXT + '/users/get';
@@ -58,6 +58,10 @@ export const APP_BLIND_INFO = CONTEXT + '/appUser/appBlindInfo';
 export const APP_ANGEL_INFO = CONTEXT + '/appUser/appAngelInfo';
 export const USER_CALL_DETAIL = CONTEXT + '/appUser/userCallDetail';
 export const USER_CALLS = CONTEXT + '/appUser/userCalls';
+export const APP_BLIND_INFO_EXCEL = CONTEXT + '/appUser/appBlindInfoExcel';
+export const APP_ANGEL_INFO_EXCEL = CONTEXT + '/appUser/appAngelInfoExcel';
+export const USER_CALL_DETAIL_EXCEL = CONTEXT + '/appUser/userCallDetailExcel';
+export const USER_CALLS_EXCEL = CONTEXT + '/appUser/userCallsExcel';
 
 
 

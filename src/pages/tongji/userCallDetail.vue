@@ -60,7 +60,7 @@
          >
         </el-table-column>
          <el-table-column
-          prop="ages"
+          prop="age"
           label="年龄"
          >
         </el-table-column>
@@ -191,12 +191,14 @@
         this.loadData();
       },
       download(){
-        tongjiApi.CountChatDetailExcel({
-          searchKey: this.searchKey
+        tongjiApi.userCallDetailExcel({
+          key: this.searchKey,
+          tel: this.searchtel
         })
         .then( res => {
           if ( res.code == "200" || res.code == 200 ) {
               window.open("http://101.132.132.117:12580/"+res.data,"_self");
+              //window.open("http://localhost:12580/"+res.data,"_self");
             }
         });
       },

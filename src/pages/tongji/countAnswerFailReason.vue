@@ -49,6 +49,11 @@
          >
         </el-table-column>
         <el-table-column
+          prop="user_agent"
+          label="客户端"
+         >
+        </el-table-column>
+        <el-table-column
           prop="createdAt"
           label="日期"
          >

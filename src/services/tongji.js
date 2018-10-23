@@ -220,3 +220,55 @@ export function userCalls(params) {
             })
     })
 }
+
+export function AppBlindInfoExcel(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.APP_BLIND_INFO_EXCEL, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
+export function AppAngelInfoExcel(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.APP_ANGEL_INFO_EXCEL, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
+
+
+export function userCallDetailExcel(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.USER_CALL_DETAIL_EXCEL, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
+
+export function userCallsExcel(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.USER_CALLS_EXCEL, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}

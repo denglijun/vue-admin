@@ -35,7 +35,7 @@
         </el-table-column>
         <el-table-column
           prop="name"
-          label="视友姓名"
+          label="亲友姓名"
          >
         </el-table-column>
         <el-table-column
@@ -142,12 +142,13 @@
         this.loadData();
       },
       download(){
-        tongjiApi.CountChatDetailExcel({
-          searchKey: this.searchKey
+        tongjiApi.AppAngelInfoExcel({
+          key: this.searchKey
         })
         .then( res => {
           if ( res.code == "200" || res.code == 200 ) {
               window.open("http://101.132.132.117:12580/"+res.data,"_self");
+              //window.open("http://localhost:12580/"+res.data,"_self");
             }
         });
       },

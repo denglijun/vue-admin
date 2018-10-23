@@ -1,5 +1,4 @@
 <template>
-
   <imp-panel>
     <h3 class="box-title" slot="header" style="width: 100%;">
       <el-button type="primary" icon="plus" @click="newAdd">新增</el-button>
@@ -92,7 +91,7 @@
         maxId:700000,
         form: {
           id: null,
-          parentId: null,
+          parentId: 0,
           name: '',
           code: '',
           type: 1,

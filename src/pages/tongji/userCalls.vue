@@ -9,7 +9,7 @@
         <el-col :span="12">
           <div class="el-input" style="width: 200px; float: right;">
             <i class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="输入用户名称" v-model="searchKey" @keyup.enter="search($event)"
+            <input type="text" placeholder="输入用户手机号" v-model="searchKey" @keyup.enter="search($event)"
                    class="el-input__inner">
           </div>
         </el-col>
@@ -168,12 +168,13 @@
         this.loadData();
       },
       download(){
-        tongjiApi.CountChatDetailExcel({
-          searchKey: this.searchKey
+        tongjiApi.userCallsExcel({
+          key: this.searchKey
         })
         .then( res => {
           if ( res.code == "200" || res.code == 200 ) {
-              window.open("http://101.132.132.117:12580/"+res.data,"_self");
+             window.open("http://101.132.132.117:12580/"+res.data,"_self");
+             //window.open("http://localhost:12580/"+res.data,"_self");
             }
         });
       },
