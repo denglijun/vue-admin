@@ -9,7 +9,7 @@ export const SYS_MENU_UPDATE = CONTEXT + '/sys/menu/update';
 export const SYS_MENU_DELETE = CONTEXT + '/sys/menu/delete';
 export const SYS_MENU_ADD = CONTEXT + '/sys/menu/add';
 export const SYS_MENU_PAGE = CONTEXT + '/sys/menu/page';
-export const SYS_MENU_LIST = CONTEXT + '/sys/menu/list';
+export const SYS_MENU_LIST = CONTEXT + '/node/menuList';
 export const SYS_MENU_LIST2 = CONTEXT + '/sys/menu/list2';
 
 export const SYS_ROLE_GET = CONTEXT + '/roles/get';
@@ -23,7 +23,7 @@ export const SYS_ROLE_RESOURCE = CONTEXT + '/sys/role/resources';
 export const SYS_SET_ROLE_RESOURCE = CONTEXT + '/sys/role/setResources';
 
 export const SYS_RESOURCE_GET = CONTEXT + '/sys/resource/get';
-export const SYS_RESOURCE_UPDATE = CONTEXT + '/sys/resource/update';
+export const SYS_RESOURCE_UPDATE = CONTEXT + '/node/update';
 export const SYS_RESOURCE_DELETE = CONTEXT + '/sys/resource/delete';
 export const SYS_RESOURCE_ADD = CONTEXT + '/node/add';
 export const SYS_RESOURCE_PAGE = CONTEXT + '/sys/resource/page';
