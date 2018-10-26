@@ -63,10 +63,14 @@ export const APP_ANGEL_INFO_EXCEL = CONTEXT + '/appUser/appAngelInfoExcel';
 export const USER_CALL_DETAIL_EXCEL = CONTEXT + '/appUser/userCallDetailExcel';
 export const USER_CALLS_EXCEL = CONTEXT + '/appUser/userCallsExcel';
 
-
-
 export const BUSINESS_WIFI_LIST = CONTEXT + '/business/wifilist';
 export const BUSINESS_WIFI_ADD = CONTEXT + '/business/wifiAdd';
 export const BUSINESS_WIFI_UPDATE = CONTEXT + '/business/wifiUpdate';
 export const BUSINESS_WIFI_DELETE = CONTEXT + '/business/wifiDelete';
 export const BUSINESS_WIFI_GET = CONTEXT + '/business/getWifi';
+export const BUSINESS_CUSTOMER_LIST = CONTEXT + '/business/customerList';
+export const BUSINESS_CUSTOMER_ADD = CONTEXT + '/business/customerAdd';
+export const BUSINESS_CUSTOMER_UPDATE = CONTEXT + '/business/customerUpdate';
+export const BUSINESS_CUSTOMER_DELETE = CONTEXT + '/business/customerDelete';
+export const BUSINESS_CUSTOMER_GET = CONTEXT + '/business/getCustomer';
+export const CUSTOMER_PWD_UPDATE = CONTEXT + '/business/updateCustomerPwd';

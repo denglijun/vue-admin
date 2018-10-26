@@ -19,6 +19,8 @@ import countChatDetail from "../pages/tongji/countChatDetail";
 import countAnswerFailDetail from "../pages/tongji/countAnswerFailDetail";
 import wifi from "../pages/business/Wifi";
 import wifiAdd from "../pages/business/WifiAdd";
+import customer from "../pages/business/customer";
+import customerAdd from "../pages/business/customerAdd";
 import appBlindInfo from "../pages/tongji/appBlindInfo";
 import appAngelInfo from "../pages/tongji/appAngelInfo";
 import userCallDetail from "../pages/tongji/userCallDetail";
@@ -74,6 +76,8 @@ const routes = [
         children: [
             { path: '/business/wifi', component: wifi },
             { path: '/business/wifiAdd', component: wifiAdd },
+            { path: '/business/customer', component: customer },
+            { path: '/business/customerAdd', component: customerAdd }
         ]
     }
 

@@ -67,3 +67,69 @@ export function getWifi(params) {
             })
     })
 };
+
+export function customerList(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.BUSINESS_CUSTOMER_LIST, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve(defaultValue.countuser);
+            })
+            .catch((error) => {
+                resolve(defaultValue.countuser)
+            })
+    })
+};
+
+export function customerAdd(params) {
+    console.log(params)
+    return new Promise((resolve, reject) => {
+        axios.post(api.BUSINESS_CUSTOMER_ADD, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve(defaultValue.countuser);
+            })
+            .catch((error) => {
+                resolve(defaultValue.countuser)
+            })
+    })
+};
+
+export function customerUpdate(params) {
+    return new Promise((resolve, reject) => {
+        axios.post(api.BUSINESS_CUSTOMER_UPDATE, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve(defaultValue.countuser);
+            })
+            .catch((error) => {
+                resolve(defaultValue.countuser)
+            })
+    })
+};
+
+export function customerDelete(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.BUSINESS_CUSTOMER_DELETE, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve(defaultValue.countuser);
+            })
+            .catch((error) => {
+                resolve(defaultValue.countuser)
+            })
+    })
+};
+
+export function getCustomer(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.BUSINESS_CUSTOMER_GET, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve(defaultValue.countuser);
+            })
+            .catch((error) => {
+                resolve(defaultValue.countuser)
+            })
+    })
+};
