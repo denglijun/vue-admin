@@ -41,6 +41,22 @@
           prop="tel"
           label="手机号">
         </el-table-column>
+        <el-table-column
+          prop="connect_result"
+          label="连接结果">
+        </el-table-column>
+        <el-table-column
+          prop="ok_counter"
+          label="成功次数">
+        </el-table-column>
+        <el-table-column
+          prop="fail_counter"
+          label="失败次数">
+        </el-table-column>
+        <el-table-column
+          prop="successRate"
+          label="连接成功率">
+        </el-table-column>
         <el-table-column label="操作" width="285">
           <template slot-scope="scope">
             <el-button

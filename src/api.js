@@ -62,6 +62,7 @@ export const APP_BLIND_INFO_EXCEL = CONTEXT + '/appUser/appBlindInfoExcel';
 export const APP_ANGEL_INFO_EXCEL = CONTEXT + '/appUser/appAngelInfoExcel';
 export const USER_CALL_DETAIL_EXCEL = CONTEXT + '/appUser/userCallDetailExcel';
 export const USER_CALLS_EXCEL = CONTEXT + '/appUser/userCallsExcel';
+export const COUNT_SIGNAL = CONTEXT + '/tongji/getCountSignal';
 
 export const BUSINESS_WIFI_LIST = CONTEXT + '/business/wifilist';
 export const BUSINESS_WIFI_ADD = CONTEXT + '/business/wifiAdd';

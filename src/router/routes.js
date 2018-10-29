@@ -25,6 +25,7 @@ import appBlindInfo from "../pages/tongji/appBlindInfo";
 import appAngelInfo from "../pages/tongji/appAngelInfo";
 import userCallDetail from "../pages/tongji/userCallDetail";
 import userCalls from "../pages/tongji/userCalls";
+import countSignal from "../pages/tongji/countSignal";
 
 // Routes
 const routes = [
@@ -53,7 +54,7 @@ const routes = [
             { path: "/tongji/11", component: appAngelInfo },
             { path: "tongji/12", component: userCallDetail },
             { path: "tongji/13", component: userCalls },
-
+            { path: "tongji/14", component: countSignal },
         ]
     },
     {

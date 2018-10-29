@@ -272,3 +272,16 @@ export function userCallsExcel(params) {
             })
     })
 }
+
+export function CountSignal(params) {
+    return new Promise((resolve, reject) => {
+        axios.get(api.COUNT_SIGNAL, { params }).then(response => {
+                resolve(response.data);
+            }, err => {
+                resolve({});
+            })
+            .catch((error) => {
+                resolve({})
+            })
+    })
+}
