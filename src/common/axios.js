@@ -9,10 +9,10 @@ axios.defaults.timeout = 5000;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 // axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.headers.common['Authorization'] = '';
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + window.localStorage.getItem('imp-sid');;
 // axios.defaults.baseURL = getBaseUrl(window.location.href);
- axios.defaults.headers.common[ 'authUid' ] = auth.getUid();
- axios.defaults.headers.common[ 'authSid' ] = auth.getSid();
+// axios.defaults.headers.common['authUid'] = auth.getUid();
+// axios.defaults.headers.common['authSid'] = auth.getSid();
 
 //POST传参序列化
 // axios.interceptors.request.use((config) => {
@@ -42,19 +42,19 @@ axios.defaults.headers.common['Authorization'] = '';
 //     //return Promise.reject(error);
 //   });
 
-export function fetch (url, config = { method: 'get' }) {
-  return axios.request({ ...config, url })
-  // return new Promise((resolve, reject) => {
-  //   axios.request({ ...config, url })
-  //     .then(response => {
-  //       resolve(response.data);
-  //     }, err => {
-  //       reject(err);
-  //     })
-  //     .catch((error) => {
-  //       reject(error)
-  //     })
-  // })
+export function fetch(url, config = { method: 'get' }) {
+    return axios.request({...config, url })
+        // return new Promise((resolve, reject) => {
+        //   axios.request({ ...config, url })
+        //     .then(response => {
+        //       resolve(response.data);
+        //     }, err => {
+        //       reject(err);
+        //     })
+        //     .catch((error) => {
+        //       reject(error)
+        //     })
+        // })
 }
 
 export default axios

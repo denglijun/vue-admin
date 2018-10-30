@@ -48,8 +48,8 @@
           </template>
         </el-table-column>
          <el-table-column
+          prop="roleName"
           label="角色">
-         
         </el-table-column>
         <el-table-column label="操作" width="285">
           <template slot-scope="scope">
@@ -162,7 +162,7 @@
         }
         this.$http.get(api.SYS_USER_ROLE + "?id=" + row.id)
           .then(res => {
-            this.$refs.roleTree.setCheckedKeys(res.data);
+            this.$refs.roleTree.setCheckedKeys(res.data.data);
           }).catch(err=>{
 
         })

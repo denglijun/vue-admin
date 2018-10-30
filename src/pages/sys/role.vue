@@ -64,7 +64,7 @@
             check-strictly
             node-key="id"
             v-loading="dialogLoading"
-            :props="defaultProps">
+            :props="defaultProps2">
           </el-tree>
           </el-scrollbar>
           </div>
@@ -102,6 +102,11 @@
         defaultProps: {
           children: 'children',
           label: 'rolename',
+          id: "id",
+        },
+        defaultProps2: {
+          children: 'children',
+          label: 'nodename',
           id: "id",
         },
         roleTree: [],
@@ -216,22 +221,27 @@
           </span>);
       },
       settingResource(event,id){
+          this.form.id = id;
           event.stopPropagation();
           this.dialogVisible = true;
           if(this.resourceTree==null||this.resourceTree.length<=0){
             this.dialogLoading = true;
             sysApi.resourceList()
               .then(res => {
+                console.log(res);
                 this.dialogLoading = false;
                 this.resourceTree = res;
               })
-          }
-        this.$http.get(api.SYS_ROLE_RESOURCE + "?id=" + id)
-          .then(res => {
-            this.$refs.resourceTree.setCheckedKeys(res.data);
-          }).catch(err=> {
-
+          } 
+          
+            this.$http.get(api.SYS_ROLE_RESOURCE + "?id=" + id)
+            .then(res => {
+              console.log(res.data.data);
+              this.$refs.resourceTree.setCheckedKeys(res.data.data);
+            }).catch(err=> {
         })
+          
+       
       }
     },
     created(){

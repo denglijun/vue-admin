@@ -10,11 +10,11 @@
       </a>
       <div class="navbar-custom-menu">
         <el-dropdown class="navbar-dropdown" trigger="click">
-          <div class="el-dropdown-link" style="height: auto;line-height: inherit">
+          <!--<div class="el-dropdown-link" style="height: auto;line-height: inherit">
             <el-badge :value="count" class="item">
             <i class="fa fa-envelope-o"></i>
             </el-badge>
-          </div>
+          </div>-->
           <el-dropdown-menu>
             <ul class="message-list">
             <li v-for="(item,index) in list"><!-- start message -->
@@ -27,14 +27,14 @@
         </el-dropdown>
         <el-dropdown trigger="click" class="navbar-dropdown">
           <div class="el-dropdown-link">
-            <img :src='userInfo.avatar' style="width: 25px;height: 25px;border-radius: 50%; vertical-align: middle;" alt="U">
-            {{userInfo.name}}
+            <!--<img :src='userInfo.avatar' style="width: 25px;height: 25px;border-radius: 50%; vertical-align: middle;" alt="U">-->
+            {{userInfo.username}}
           </div>
           <el-dropdown-menu style="padding: 0px">
             <div>
               <div class="header-pic">
-                <img :src='userInfo.avatar' class="img-circle" alt="User Image" >
-                <p>{{userInfo.name}}</p>
+                <!--<img :src='userInfo.avatar' class="img-circle" alt="User Image" >-->
+                <p>{{userInfo.username}}</p>
               </div>
               <div class="pull-left">
                 <router-link :to="{ path: '/resetPwd' }">

@@ -1,4 +1,4 @@
-export const CONTEXT = '/api';
+export const CONTEXT = '';
 
 export const LOGIN = CONTEXT + '/users/login';
 export const LOGOUT = CONTEXT + '/logout';
@@ -19,8 +19,8 @@ export const SYS_ROLE_ADD = CONTEXT + '/roles/add';
 export const SYS_ROLE_PAGE = CONTEXT + '/roles/page';
 export const SYS_ROLE_LIST = CONTEXT + '/roles/list';
 export const SYS_ROLE_LIST2 = CONTEXT + '/roles/list2';
-export const SYS_ROLE_RESOURCE = CONTEXT + '/sys/role/resources';
-export const SYS_SET_ROLE_RESOURCE = CONTEXT + '/sys/role/setResources';
+export const SYS_ROLE_RESOURCE = CONTEXT + '/roles/resources';
+export const SYS_SET_ROLE_RESOURCE = CONTEXT + '/roles/setResources';
 
 export const SYS_RESOURCE_GET = CONTEXT + '/sys/resource/get';
 export const SYS_RESOURCE_UPDATE = CONTEXT + '/node/update';
@@ -35,7 +35,7 @@ export const SYS_USER_ADD = CONTEXT + '/users/add';
 export const SYS_USER_UPDATE = CONTEXT + '/users/update';
 export const SYS_USER_DELETE = CONTEXT + '/users/delete';
 export const SYS_USER_LIST = CONTEXT + '/users/list';
-export const SYS_USER_ROLE = CONTEXT + '/sys/user/roleIds';
+export const SYS_USER_ROLE = CONTEXT + '/users/roleIds';
 export const SYS_SET_USER_ROLE = CONTEXT + '/users/setRoles';
 
 export const MSG_TOP_TEN = CONTEXT + '/messageList';
